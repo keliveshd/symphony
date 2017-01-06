@@ -239,13 +239,25 @@ public class DataModelService {
     public void fillIndexTags(final Map<String, Object> dataModel) throws Exception {
         Stopwatchs.start("Fills index tags");
         try {
-            for (int i = 0; i < 9; i++) {
-                final JSONObject tag = new JSONObject();
-                tag.put(Tag.TAG_URI, "Sym");
-                tag.put(Tag.TAG_ICON_PATH, "sym.png");
-                tag.put(Tag.TAG_TITLE, "Sym");
+            for (JSONObject _tag : tagQueryService.getIndexSquaredTags()) {
+                int offset = _tag.optInt(Tag.TAG_TAGINDEXSQUARED);
+                if (_tag.optString(Tag.TAG_ICON_PATH).isEmpty()){
+                    _tag.put(Tag.TAG_ICON_PATH, "sym.png");
+                }
+                //首页位置从0开始
+                dataModel.put(Tag.TAG + (offset-1) , _tag);
+            }
+            ;
 
-                dataModel.put(Tag.TAG + i, tag);
+            for (int i = 0; i < 9; i++) {
+                if (dataModel.containsKey(Tag.TAG + i)==false) {
+                    final JSONObject tag = new JSONObject();
+                    tag.put(Tag.TAG_URI, "Sym");
+                    tag.put(Tag.TAG_ICON_PATH, "sym.png");
+                    tag.put(Tag.TAG_TITLE, "Sym");
+
+                    dataModel.put(Tag.TAG + i, tag);
+                }
             }
 
             final List<JSONObject> tags = tagQueryService.getTags(Symphonys.getInt("sideTagsCnt"));

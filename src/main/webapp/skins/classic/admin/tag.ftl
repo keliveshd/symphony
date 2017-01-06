@@ -62,6 +62,20 @@
                 <label for="tagCSS">CSS</label>
                 <textarea rows="20" id="tagCSS" name="tagCSS">${tag.tagCSS}</textarea>
 
+                <label for="tagIndexSquared">${tagIndexSquared} </label>
+                    <select id="tagIndexSquared" name="tagIndexSquared">
+                    <option value="0"<#if tag.tagIndexSquared?string == "0" > selected</#if>>无</option>
+                    <option value="1"<#if tag.tagIndexSquared?string == "1" > selected</#if>>左上</option>
+                    <option value="2"<#if tag.tagIndexSquared?string == "2" > selected</#if>>上</option>
+                    <option value="3"<#if tag.tagIndexSquared?string == "3" > selected</#if>>右上</option>
+                    <option value="4"<#if tag.tagIndexSquared?string == "4" > selected</#if>>左</option>
+                    <option value="5"<#if tag.tagIndexSquared?string == "5" > selected</#if>>中</option>
+                    <option value="6"<#if tag.tagIndexSquared?string == "6" > selected</#if>>右</option>
+                    <option value="7"<#if tag.tagIndexSquared?string == "7" > selected</#if>>左下</option>
+                    <option value="8"<#if tag.tagIndexSquared?string == "8" > selected</#if>>中下</option>
+                    <option value="9"<#if tag.tagIndexSquared?string == "9" > selected</#if>>右下</option>
+                </select>
+
                 <br/><br/>
                 <button type="submit" class="green fn-right">${submitLabel}</button>
             </form>

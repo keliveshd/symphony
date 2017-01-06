@@ -48,9 +48,9 @@
                         </#if>
                         <br/>
                     </div>
-                    <button id="showReward" class="fn-ellipsis" onclick="$(this).next().show(); $(this).hide()">
+                  <#--  <button id="showReward" class="fn-ellipsis" onclick="$(this).next().show(); $(this).hide()">
                         ${rewardEditorPlaceholderLabel} &dtrif;
-                    </button>
+                    </button> -->
                     <div class="fn-none">
                         <div class="fn-clear article-reward-content">
                             <textarea id="articleRewardContent" tabindex="4"

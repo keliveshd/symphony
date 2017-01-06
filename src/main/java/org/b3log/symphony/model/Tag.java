@@ -17,22 +17,15 @@
  */
 package org.b3log.symphony.model;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.regex.Pattern;
 import org.apache.commons.lang.StringUtils;
 import org.b3log.latke.ioc.LatkeBeanManagerImpl;
 import org.b3log.latke.util.Strings;
 import org.b3log.symphony.cache.TagCache;
 import org.b3log.symphony.util.Symphonys;
 import org.json.JSONObject;
+
+import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  * This class defines tag model relevant keys.
@@ -123,6 +116,10 @@ public final class Tag {
      * Key of tag seo keywords.
      */
     public static final String TAG_SEO_KEYWORDS = "tagSeoKeywords";
+    /**
+     * Key of tag tagIndexSquared.
+     */
+    public static final String TAG_TAGINDEXSQUARED="tagIndexSquared";
 
     /**
      * Key of tag seo description.

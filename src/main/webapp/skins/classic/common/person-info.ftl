@@ -34,7 +34,7 @@
             <span class="ft-green">♥</span> <a href="${servePath}/top/consumption"><span class="ft-gray">${consumptionRankLabel}</span></a>
             <a href="${servePath}/member/${currentUser.userName}/points" class="ft-gray fn-right tooltipped tooltipped-w"
                aria-label="${pointLabel} ${currentUser.userPoint?c}">
-                <#if 0 == currentUser.userAppRole>0x${currentUser.userPointHex}<#else><div class="painter-point" style="background-color: #${currentUser.userPointCC}"></div></#if></a>
+                <#if 0 == currentUser.userAppRole><#--0x${currentUser.userPointHex}-->${currentUser.userPoint?c}<#else><div class="painter-point" style="background-color: #${currentUser.userPointCC}"></div></#if></a>
         </div>
     </div> 
     <div class="top-left activity-board"></div>

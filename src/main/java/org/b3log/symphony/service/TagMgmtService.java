@@ -17,11 +17,6 @@
  */
 package org.b3log.symphony.service;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
-import javax.inject.Inject;
 import org.b3log.latke.Keys;
 import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
@@ -37,12 +32,14 @@ import org.b3log.symphony.model.Common;
 import org.b3log.symphony.model.Option;
 import org.b3log.symphony.model.Tag;
 import org.b3log.symphony.model.UserExt;
-import org.b3log.symphony.repository.OptionRepository;
-import org.b3log.symphony.repository.TagRepository;
-import org.b3log.symphony.repository.TagTagRepository;
-import org.b3log.symphony.repository.UserRepository;
-import org.b3log.symphony.repository.UserTagRepository;
+import org.b3log.symphony.repository.*;
 import org.json.JSONObject;
+
+import javax.inject.Inject;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Tag management service.
@@ -109,10 +106,10 @@ public class TagMgmtService {
 
     /**
      * Adds a tag.
-     *
+     * <p>
      * <b>Note</b>: This method just for admin console.
      *
-     * @param userId the specified user id
+     * @param userId   the specified user id
      * @param tagTitle the specified tag title
      * @return tag id
      * @throws ServiceException service exception
@@ -152,6 +149,7 @@ public class TagMgmtService {
             tag.put(Tag.TAG_SEO_KEYWORDS, tagTitle);
             tag.put(Tag.TAG_SEO_DESC, "");
             tag.put(Tag.TAG_RANDOM_DOUBLE, Math.random());
+            tag.put(Tag.TAG_TAGINDEXSQUARED,0);
 
             ret = tagRepository.add(tag);
             tag.put(Keys.OBJECT_ID, ret);
@@ -190,17 +188,25 @@ public class TagMgmtService {
 
     /**
      * Updates the specified tag by the given tag id.
-     *
+     * <p>
      * <b>Note</b>: This method just for admin console.
      *
      * @param tagId the given tag id
-     * @param tag the specified tag
+     * @param tag   the specified tag
      * @throws ServiceException service exception
      */
     public void updateTag(final String tagId, final JSONObject tag) throws ServiceException {
         final Transaction transaction = tagRepository.beginTransaction();
 
         try {
+            if(!tag.optString(Tag.TAG_TAGINDEXSQUARED).equals(0)) {
+                List<JSONObject> results = tagRepository.getByIndexSquared(tag.optString(Tag.TAG_TAGINDEXSQUARED));
+                for (int i = 0; i < results.size(); i++) {
+                    JSONObject _tag = results.get(i);
+                    _tag.put(Tag.TAG_TAGINDEXSQUARED, 0);
+                    tagRepository.update(_tag.optString(Keys.OBJECT_ID), _tag);
+                }
+            }
             tag.put(Tag.TAG_RANDOM_DOUBLE, Math.random());
 
             tagRepository.update(tagId, tag);
@@ -247,7 +253,7 @@ public class TagMgmtService {
      * Updates the specified tag-tag relation by the given tag relation id.
      *
      * @param tagRelationId the given tag relation id
-     * @param tagRelation the specified tag-tag relation
+     * @param tagRelation   the specified tag-tag relation
      * @throws ServiceException service exception
      */
     public void updateTagRelation(final String tagRelationId, final JSONObject tagRelation) throws ServiceException {

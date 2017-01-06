@@ -17,22 +17,6 @@
  */
 package org.b3log.symphony.util;
 
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.SocketTimeoutException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.b3log.latke.logging.Level;
@@ -44,6 +28,18 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Link utilities.
@@ -67,11 +63,11 @@ public final class Links {
      * @return a list of links, each of them like this:      <pre>
      * {
      *     "linkAddr": "https://hacpai.com/article/1440573175609",
-     *     "linkTitle": "黑客派简介",
+     *     "linkTitle": "青岛弘智简介",
      *     "linkKeywords": "",
      *     "linkHTML": "page HTML",
      *     "linkText": "page text",
-     *     "linkBaiduRefCnt": int
+     *     "linkBaiduRefC int
      * }
      * </pre>
      */

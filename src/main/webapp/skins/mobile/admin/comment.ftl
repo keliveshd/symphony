@@ -24,7 +24,7 @@
             <label for="commentUA">UA</label>
             <input type="text" id="commentUA" name="commentUA" value="${comment.commentUA}" readonly="readonly" />
 
-            <label for="commentAnonymous">${anonymousLabel}</label>
+            <#--<label for="commentAnonymous">${anonymousLabel}</label> -->
             <select id="commentAnonymous" name="commentAnonymous" disabled="disabled">
                 <option value="0"<#if 0 == comment.commentAnonymous> selected</#if>>${noLabel}</option>
                 <option value="1"<#if 1 == comment.commentAnonymous> selected</#if>>${yesLabel}</option>

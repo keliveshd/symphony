@@ -43,7 +43,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
+                        <!--        <li>
                                     <div class='fn-flex'>
                                         <div class="avatar tooltipped tooltipped-ne"
                                              aria-label="${activity1A0001Label}" style="background-image:url('${staticServePath}/images/activities/1A0001.png')"></div>
@@ -68,7 +68,7 @@
                                             <span class="ft-fade">${activityCharacterTitleLabel}</span>
                                         </div>
                                     </div>
-                                </li>
+                                </li>-->
                                 <li>
                                     <div class='fn-flex'>
                                         <div class="avatar tooltipped tooltipped-ne"

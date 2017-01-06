@@ -15,15 +15,15 @@
         <div class="main">
             <div class="wrapper post">
                 <div class="form fn-flex-1 fn-clear">
+                <#if requisite>
+                    <div class="tip error">
+                        <ul>
+                            <li>${requisiteMsg}</li>
+                        </ul>
+                    </div>
+                    <br/>
+                </#if>
 
-                    <#if requisite>
-                        <div class="tip error">
-                            <ul>
-                                <li>${requisiteMsg}</li>
-                            </ul>
-                        </div>
-                        <br/>
-                    </#if>
 
                     <input type="text" id="articleTitle" autocomplete="off" tabindex="1"<#if requisite> readonly disabled</#if>
                            value="<#if article??>${article.articleTitle}</#if>" placeholder="${titleLabel}" />
@@ -56,10 +56,10 @@
                         </#if>
                         <br/>
                     </div>
-                    <button id="showReward" class="fn-ellipsis"<#if requisite> readonly disabled</#if>
+                  <#--   <button id="showReward" class="fn-ellipsis"<#if requisite> readonly disabled</#if>
                     onclick="$(this).next().show(); $(this).hide()">
                         ${rewardEditorPlaceholderLabel} &dtrif;
-                    </button>
+                    </button>-->
                     <div class="fn-none">
                         <div class="fn-clear article-reward-content">
                             <textarea id="articleRewardContent" tabindex="4"

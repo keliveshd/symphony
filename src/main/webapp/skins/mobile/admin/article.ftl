@@ -48,7 +48,7 @@
             <label for"articleStick">${stickLabel}</label>
             <input type="text" id="articleStick" name="articleStick" value="${article.articleStick?c}" readonly="readonly" />
 
-            <label for="articleAnonymous">${anonymousLabel}</label>
+          <#--  <label for="articleAnonymous">${anonymousLabel}</label> -->
             <select id="articleAnonymous" name="articleAnonymous" disabled="disabled">
                 <option value="0"<#if 0 == article.articleAnonymous> selected</#if>>${noLabel}</option>
                 <option value="1"<#if 1 == article.articleAnonymous> selected</#if>>${yesLabel}</option>
@@ -158,7 +158,7 @@
     </div>
     </#if>
 
-    <#if (esEnabled || algoliaEnabled) && permissions["articleReindexArticle"].permissionGrant>
+    <#if (esEnabled==false || algoliaEnabled) && permissions["articleReindexArticle"].permissionGrant>
     <div class="module">
         <div class="module-header">
             <h2>${searchIndexLabel}</h2>

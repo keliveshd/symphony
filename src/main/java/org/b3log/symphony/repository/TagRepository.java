@@ -17,26 +17,22 @@
  */
 package org.b3log.symphony.repository;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
-import javax.inject.Inject;
 import org.b3log.latke.Keys;
 import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
-import org.b3log.latke.repository.AbstractRepository;
-import org.b3log.latke.repository.FilterOperator;
-import org.b3log.latke.repository.PropertyFilter;
-import org.b3log.latke.repository.Query;
-import org.b3log.latke.repository.RepositoryException;
-import org.b3log.latke.repository.SortDirection;
+import org.b3log.latke.repository.*;
 import org.b3log.latke.repository.annotation.Repository;
 import org.b3log.latke.util.CollectionUtils;
 import org.b3log.symphony.cache.TagCache;
 import org.b3log.symphony.model.Tag;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import javax.inject.Inject;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Tag repository.
@@ -190,6 +186,25 @@ public class TagRepository extends AbstractRepository {
         return CollectionUtils.jsonArrayToList(array);
     }
 
+    public List<JSONObject> getByIndexSquared(final String squaredIndex) throws RepositoryException {
+
+        final Query query = new Query().setFilter(new PropertyFilter(Tag.TAG_TAGINDEXSQUARED, FilterOperator.EQUAL, squaredIndex));
+        final JSONObject result = get(query);
+
+        final JSONArray array = result.optJSONArray(Keys.RESULTS);
+
+        return CollectionUtils.jsonArrayToList(array);
+    }
+
+    public List<JSONObject> getByIndexSquared() throws RepositoryException {
+
+        final Query query = new Query().setFilter(new PropertyFilter(Tag.TAG_TAGINDEXSQUARED, FilterOperator.GREATER_THAN, 0));
+        final JSONObject result = get(query);
+
+        final JSONArray array = result.optJSONArray(Keys.RESULTS);
+
+        return CollectionUtils.jsonArrayToList(array);
+    }
     /**
      * Gets tags of an article specified by the article id.
      *

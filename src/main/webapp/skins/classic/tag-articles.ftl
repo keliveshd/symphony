@@ -98,7 +98,7 @@
         <@listScript/>
         <script>
             <#if (isLoggedIn && !tag.isReserved) || (tag.isReserved && isAdminLoggedIn)>
-            $('.person-info .btn.red').attr('onclick', 'window.location = "/post?tags=${tag.tagURI}&type=0"');
+            $('.person-info .btn.red').attr('onclick', 'window.location = "${servePath}/post?tags=${tag.tagURI}&type=0"');
             </#if>
         </script>
     </body>

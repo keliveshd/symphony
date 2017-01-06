@@ -129,7 +129,7 @@ public class SearchProcessor {
         dataModel.put(Common.KEY, keyword);
 
         final String p = request.getParameter("p");
-        int pageNum = 1;
+        int pageNum = 0;
         if (StringUtils.isNotBlank(p) && Strings.isNumeric(p)) {
             pageNum = Integer.valueOf(p);
         }

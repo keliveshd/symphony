@@ -18,7 +18,7 @@
                     </a>
                     <div class="ft-fade">${addNormalArticleTipLabel}</div>
                 </div>
-                <div>
+                <#--       <div>
                     <a href="${servePath}/post?type=3">
                         <div class="icon-video"></div>
                         ${thoughtLabel}
@@ -27,7 +27,7 @@
                         ${addThoughtArticleTipLabel}
                         <a href="https://hacpai.com/article/1441942422856" target="_blank">(?)</a>
                     </div>
-                </div>
+                </div> -->
                 <div>
                     <a href="${servePath}/post?type=1">
                         <div class="icon-locked"></div>
@@ -35,13 +35,13 @@
                     </a>
                     <div class="ft-fade">${addDiscussionArticleTipLabel}</div>
                 </div>
-                <div>
+            <!--    <div>
                     <a href="${servePath}/post?type=2">
                         <div class="icon-feed"></div>
                         ${cityBroadcastLabel}
                     </a>
                     <div class="ft-fade">${addCityArticleTipLabel} <i>${broadcastPoint}</i> ${pointLabel}</div>
-                </div>
+                </div> -->
             </div>
         </div>
         <#include "../footer.ftl">

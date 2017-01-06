@@ -157,6 +157,7 @@ h1.article-title {
 #revision .pagination {
     margin-bottom: 10px;
     float: right;
+
 }
 
 label.cmt-anonymous {
@@ -995,6 +996,13 @@ code .dec { color: initial; } /* decimal - blue */
 
     .metro-border > div.green {
         background-color: $green;
+    }
+    .metro-border > div.red {
+        background-color: $red;
+    }
+    .metro-border > div.purple {
+        background-color: #563d7c;
+        margin-left: 2px;
     }
 
     .index-side.down {

@@ -16,11 +16,11 @@
         </#if>
         <a href="${servePath}/timeline"<#if selected?? && 'timeline' == selected> class="selected"</#if>>
            <svg height="14" viewBox="0 0 16 14" width="16">${timelineIcon}</svg> ${timelineLabel}</a>
-        <a href="${servePath}/forge/link"<#if selected?? && 'forge' == selected> class="selected"</#if>>
-           <svg height="14" viewBox="0 1 16 14" width="16">${baguaIcon}</svg> ${forgeLabel}</a>
+      <!--  <a href="${servePath}/forge/link"<#if selected?? && 'forge' == selected> class="selected"</#if>>
+           <svg height="14" viewBox="0 1 16 14" width="16">${baguaIcon}</svg> ${forgeLabel}</a> -->
     </div>
     <#if esEnabled || algoliaEnabled>
-    <form class="responsive-hide fn-left" target="_blank" action="/search">
+    <form class="responsive-hide fn-left" target="_blank" action="${servePath}/search">
         <input class="search" placeholder="Search HacPai" type="text" name="key" id="search" value="<#if key??>${key}</#if>" >
         <input type="submit" class="fn-none" value=""/>
     </form>

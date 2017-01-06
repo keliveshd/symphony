@@ -29,7 +29,7 @@
             </li>
             <li class="last">
                 <a target="_blank" href="https://github.com/b3log/symphony"> <b class="ft-green slogan">【Sym】</b></a>
-                <a class="title" target="_blank" href="https://github.com/b3log/symphony"> 黑客与画家的社区</a>
+                <a class="title" target="_blank" href="https://github.com/b3log/symphony"> hacpai.com黑客与画家的社区</a>
             </li>
         </ul>
     </div>

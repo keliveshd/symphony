@@ -45,14 +45,14 @@
                                 <li class="ft-center">
                                     ${noFollowingTagLabel}<br>
                                     ${noFollowingTagTipLabel}<br> 
-                                    <img src="${staticServePath}/images/404/6.gif"/>     
+                                    <img src="${staticServePath}/images/404/2.gif"/>
                                 </li>  
                             </#if>
                             <#if !isLoggedIn>
                                 <li class="ft-center">
                                     ${noLoginLabel}<br>
                                     ${noLoginTipLabel}<br> 
-                                    <img src="${staticServePath}/images/404/6.gif"/>     
+                                    <img src="${staticServePath}/images/404/2.gif"/>
                                 </li>  
                             </#if>
                         </ul>
@@ -199,13 +199,15 @@
                     </ul>
                 </div>
                 <div class="metro-line fn-flex">
-                    <div class="metro-item ad"> ${ADLabel}</div>
+                    <div class="metro-item ad"></div>
+                    <div class="metro-item last"></div>
+                   <#-- <div class="metro-item ad"> ${ADLabel}</div>
                     <div class="metro-item last">
                         <a class="preview" href="https://hacpai.com/article/1460083956075">
                             <img width="44px" src="${staticServePath}/emoji/graphics/heart.png" alt="${sponsorLabel}">
                             <b>${wantPutOnLabel}</b>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="metro-border fn-flex">
                     <div></div>

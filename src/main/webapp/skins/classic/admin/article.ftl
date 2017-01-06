@@ -158,7 +158,7 @@
     </div>
     </#if>
 
-    <#if (esEnabled || algoliaEnabled) && permissions["articleReindexArticle"].permissionGrant>
+    <#if (esEnabled==false || algoliaEnabled) && permissions["articleReindexArticle"].permissionGrant>
     <div class="module">
         <div class="module-header">
             <h2>${searchIndexLabel}</h2>

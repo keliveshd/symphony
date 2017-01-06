@@ -17,18 +17,6 @@
  */
 package org.b3log.symphony.service;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import javax.inject.Inject;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.b3log.latke.Keys;
@@ -36,22 +24,11 @@ import org.b3log.latke.logging.Level;
 import org.b3log.latke.logging.Logger;
 import org.b3log.latke.model.Pagination;
 import org.b3log.latke.model.User;
-import org.b3log.latke.repository.CompositeFilter;
-import org.b3log.latke.repository.CompositeFilterOperator;
-import org.b3log.latke.repository.Filter;
-import org.b3log.latke.repository.FilterOperator;
-import org.b3log.latke.repository.PropertyFilter;
-import org.b3log.latke.repository.Query;
-import org.b3log.latke.repository.RepositoryException;
-import org.b3log.latke.repository.SortDirection;
+import org.b3log.latke.repository.*;
 import org.b3log.latke.service.ServiceException;
 import org.b3log.latke.service.annotation.Service;
 import org.b3log.latke.servlet.HTTPRequestMethod;
-import org.b3log.latke.urlfetch.HTTPHeader;
-import org.b3log.latke.urlfetch.HTTPRequest;
-import org.b3log.latke.urlfetch.HTTPResponse;
-import org.b3log.latke.urlfetch.URLFetchService;
-import org.b3log.latke.urlfetch.URLFetchServiceFactory;
+import org.b3log.latke.urlfetch.*;
 import org.b3log.latke.util.CollectionUtils;
 import org.b3log.latke.util.Paginator;
 import org.b3log.symphony.cache.TagCache;
@@ -59,18 +36,18 @@ import org.b3log.symphony.model.Common;
 import org.b3log.symphony.model.Domain;
 import org.b3log.symphony.model.Tag;
 import org.b3log.symphony.model.UserExt;
-import org.b3log.symphony.repository.DomainRepository;
-import org.b3log.symphony.repository.DomainTagRepository;
-import org.b3log.symphony.repository.TagRepository;
-import org.b3log.symphony.repository.TagTagRepository;
-import org.b3log.symphony.repository.UserRepository;
-import org.b3log.symphony.repository.UserTagRepository;
+import org.b3log.symphony.repository.*;
 import org.b3log.symphony.util.Markdowns;
 import org.b3log.symphony.util.Symphonys;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
+
+import javax.inject.Inject;
+import java.io.IOException;
+import java.net.URL;
+import java.util.*;
 
 /**
  * Tag query service.
@@ -794,5 +771,16 @@ public class TagQueryService {
             LOGGER.log(Level.ERROR, "Gets a tag [tagId=" + tagId + "] failed", e);
             throw new ServiceException(e);
         }
+    }
+
+    public List<JSONObject> getIndexSquaredTags() throws ServiceException {
+
+        try {
+            return tagRepository.getByIndexSquared();
+        } catch (final RepositoryException e) {
+            LOGGER.log(Level.ERROR, "Gets a tag [tagIndexSquared > 0] failed", e);
+            throw new ServiceException(e);
+        }
+
     }
 }

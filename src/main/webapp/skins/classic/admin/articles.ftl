@@ -6,7 +6,7 @@
         <form method="GET" action="${servePath}/admin/articles" class="form">
             <input name="id" type="text" placeholder="${articleLabel} Id"/>
             <button type="submit" class="green">${searchLabel}</button>
-            <#if (esEnabled || algoliaEnabled) && permissions["articleReindexArticles"].permissionGrant>
+            <#if (esEnabled ==false|| algoliaEnabled) && permissions["articleReindexArticles"].permissionGrant>
             <button type="button" class="btn red" onclick="searchIndex();">${searchIndexLabel}</button>
             </#if>
             <#if permissions["articleAddArticle"].permissionGrant>

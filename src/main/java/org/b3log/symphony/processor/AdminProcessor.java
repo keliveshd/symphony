@@ -1985,7 +1985,7 @@ public class AdminProcessor {
         tagFields.put(Tag.TAG_BAD_CNT, Integer.class);
         tagFields.put(Tag.TAG_URI, String.class);
         tagFields.put(Tag.TAG_CSS, String.class);
-
+        tagFields.put(Tag.TAG_TAGINDEXSQUARED,String.class);
         final JSONObject result = tagQueryService.getTags(requestJSONObject, tagFields);
         dataModel.put(Tag.TAGS, CollectionUtils.jsonArrayToList(result.optJSONArray(Tag.TAGS)));
 

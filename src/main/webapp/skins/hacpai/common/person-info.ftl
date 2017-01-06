@@ -14,7 +14,7 @@
                     <a href="/member/${currentUser.userName}">${userName}</a>  &nbsp;
                     <a href="/member/${currentUser.userName}/points" class="ft-small" title="${pointLabel} ${currentUser.userPoint?c}">
                         <#if 0 == currentUser.userAppRole>
-                        0x${currentUser.userPointHex}
+                        <#--0x${currentUser.userPointHex}-->${currentUser.userPoint?c}
                         <#else>
                         <div class="painter-point" style="background-color: #${currentUser.userPointCC}"></div>
                         </#if>

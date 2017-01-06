@@ -948,6 +948,16 @@ public class ArticleProcessor {
 
         final String b3logKey = currentUser.optString(UserExt.USER_B3_KEY);
         dataModel.put("hasB3Key", !Strings.isEmptyOrNull(b3logKey));
+
+        boolean requisite = false;
+        String requisiteMsg = "";
+        if (!currentUser.optString(UserExt.USER_AVATAR_URL).contains("_")) {
+            requisite = true;
+            requisiteMsg = langPropsService.get("uploadAvatarThenPostLabel");
+        }
+
+        dataModel.put(Common.REQUISITE, requisite);
+        dataModel.put(Common.REQUISITE_MSG, requisiteMsg);
     }
 
     /**
