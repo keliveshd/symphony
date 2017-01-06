@@ -123,13 +123,14 @@
 
                         <div class="article-actions fn-clear">
                             <span class="action-btns fn-left">
+                                <#--
                                 <span id="thankArticle" aria-label="${thankLabel}"
                                       class="tooltipped tooltipped-n has-cnt<#if article.thanked> ft-red</#if>"
                                       <#if !article.thanked && permissions["commonThankArticle"].permissionGrant>
                                           onclick="Article.thankArticle('${article.oId}', ${article.articleAnonymous})"
                                       <#else>
                                           onclick="Article.permissionTip(Label.noPermissionLabel)"
-                                      </#if>><span class="icon-heart"></span> ${article.thankedCnt}</span> &nbsp;
+                                      </#if>><span class="icon-heart"></span> ${article.thankedCnt}</span> &nbsp;-->
                                 <span class="tooltipped tooltipped-n has-cnt<#if isLoggedIn && 0 == article.articleVote> ft-red</#if>" aria-label="${upLabel}"
                                      <#if permissions["commonGoodArticle"].permissionGrant>
                                           onclick="Article.voteUp('${article.oId}', 'article', this)"

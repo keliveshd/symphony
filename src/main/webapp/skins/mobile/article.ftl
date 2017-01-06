@@ -22,13 +22,13 @@
             <div class="wrapper">
                 <div class="article-action fn-clear"> 
                     <span class="fn-right">
-                        <span id="thankArticle" aria-label="${thankLabel}"
+                      <#--   <span id="thankArticle" aria-label="${thankLabel}"
                               class="tooltipped tooltipped-n has-cnt<#if article.thanked> ft-red</#if>"
                               <#if !article.thanked && permissions["commonThankArticle"].permissionGrant>
                                   onclick="Article.thankArticle('${article.oId}', ${article.articleAnonymous})"
                               <#else>
                                   onclick="Article.permissionTip(Label.noPermissionLabel)"
-                              </#if>><span class="icon-heart"></span> ${article.thankedCnt}</span>
+                              </#if>><span class="icon-heart"></span> ${article.thankedCnt}</span> -->
                         <span class="tooltipped tooltipped-n has-cnt<#if isLoggedIn && 0 == article.articleVote> ft-red</#if>" aria-label="${upLabel}"
                             <#if permissions["commonGoodArticle"].permissionGrant>
                                 onclick="Article.voteUp('${article.oId}', 'article', this)"

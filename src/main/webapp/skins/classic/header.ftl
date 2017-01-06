@@ -21,7 +21,7 @@
     </div>
     <#if esEnabled || algoliaEnabled>
     <form class="responsive-hide fn-left" target="_blank" action="${servePath}/search">
-        <input class="search" placeholder="Search HacPai" type="text" name="key" id="search" value="<#if key??>${key}</#if>" >
+        <input class="search" placeholder="Search" type="text" name="key" id="search" value="<#if key??>${key}</#if>" >
         <input type="submit" class="fn-none" value=""/>
     </form>
     </#if>
